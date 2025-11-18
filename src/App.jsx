@@ -4,20 +4,23 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetails";
+import { BudgetProvider } from "./context/BudgetContext";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
+      <BudgetProvider>
+        <BrowserRouter>
+          <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
-        </Routes>
-      </BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductDetail />} />
+          </Routes>
+        </BrowserRouter>
+      </BudgetProvider>
     </>
   );
 }
